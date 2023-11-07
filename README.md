@@ -31,6 +31,7 @@ sudo /bin/bash macos_setup.sh
 |normal|\<leader\>pv|standard|Show vim file explorer|
 |normal|\<leader\>h|standard|split horizontal|
 |normal|\<leader\>v|standard|split vertical|
+|normal|\<leader\>tt|standard| open terminal|
 |visual|\<leader\>y|standard|Copy in system clipboard|
 |insert|jk|standard|eschap|
 |visual|J|standard|Move block down|
