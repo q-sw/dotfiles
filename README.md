@@ -9,8 +9,7 @@ This is my dotfiles
 
 ## Requirements
 - sudo permissions
-- ripgrep
-- 
+ 
 
 ## Installation on Ubuntu
 ```shell
@@ -21,10 +20,34 @@ sudo /bin/bash macos_setup.sh
 ```shell
 sudo /bin/bash macos_setup.sh
 ```
+# Nvim setup
 
-# Shorcut nvim
+To finish the nvim setup you should edit the file `nvim ~/.config/nvim/lua/q-sw/packer.lua`.  
+> Don't care about errors just press enter
 
-<!--TODO: comprendre les shorcut LSP -->
+After that in nvim command run commands bellow:  
+- :so
+- :PackerSync
+
+## Installed plugins
+|Plugin Name|Description|
+|-----------|-----------|
+|packer | nvim plugin manager|
+|nvim-telescope | File finder|
+|rose-pine | colorscheme|
+|nvim-treesitter | Colorize code in function of file type|
+|harpoon | harpoon file to access it quickly|
+|undotree | change file tracker|
+|fugitive | Git integration in nvim|
+|vim-tmux-navigator | pane navigation for vim and tmux|
+|todo-comment | Create todo list by created comment in project file|
+|lsp-zero | Pre-configure LSP puglin|
+|neo-tree | File explorer|
+|lualine | nvim status line|
+
+
+
+## Shorcuts nvim
 
 |Mode  |Shortcut|Plugin|Description|
 |------|--------|------|-----------|
@@ -32,6 +55,9 @@ sudo /bin/bash macos_setup.sh
 |normal|\<leader\>h|standard|split horizontal|
 |normal|\<leader\>v|standard|split vertical|
 |normal|\<leader\>tt|standard| open terminal|
+|normal|zi|standard|open or close  all folds|
+|normal|zc|standard|close fold with the same indentation|
+|normal|zo|standard|open fold with the same indentation|
 |visual|\<leader\>y|standard|Copy in system clipboard|
 |insert|jk|standard|eschap|
 |visual|J|standard|Move block down|
@@ -42,13 +68,39 @@ sudo /bin/bash macos_setup.sh
 |normal|\<leader\>gs|fugitive|Git status|
 |normal|\<leader\>td|todo-comment|Display all TODO comment in Telescope|
 |normal|\<leader\>n|neo-tree|Show project tree|
-|normal|\<learde\r>u|undotree|Show file change|
+|normal|\<learder\>u|undotree|Show file change|
 |normal|\<C-h\>|vim-tmux-navigator|Move to left panel|
 |normal|\<C-j\>|vim-tmux-navigator|Move to buttom panel
 |normal|\<C-k\>|vim-tmux-navigator|Move to top panel|
 |normal|\<C-l\>|vim-tmux-navigator|Move to right panel|
+|insert|\<C-p\>|nvim-cmp|Select the previous item in the autocomplete proposal|
+|insert|\<C-n\>|nvim-cmp|Select the next item in the autocomplete proposal|
+|insert|\<C-y\>|nvim-cmp|Validate the item selection|
+|insert|\<C-p\>|nvim-cmp|Activate the autocomplete|
+|normal|gd|lsp|Go to the expressions (var, func...) defintion|
+|normal|K|lsp|Display information about the expression under the cursor|
+|normal|\<learder\>vws|lsp|Search all expressions in the current workspace|
+|normal|\<learder\>vd|lsp|Display in floating windows the information message for diagnostic|
+|normal|[d|lsp|Move to the next diagnostic|
+|normal|]d|lsp|Move to the previous diagnostic|
+|normal|\<learder\>vrr|lsp|Search all occurrences of the expression under the cursor|
+|normal\<learder\>vrn||lsp|Rename all occurrences of the expression under the cursor|
 
-# Shorcut tmux
+# Setup tmux
+To finish the tmux setup you should start a new tmux session `tmux` and press `\<C-a\>I` 
+This key combination will install all plugins defined in `$HOME/.tmux.conf`
+
+## Installed plugins
+
+|Plugin Name|Description|
+|-----------|-----------|
+|tpm | Plugin manager|
+|vim-tmux-navigator|pane navigation for vim and tmux|
+|tmux-resurrect|Restore tmux environment after system restart.|
+|tmux-continuum|Save automaticly tmux sessions and restore it when tmux start|
+|tmux-autoreload|auto reload config file|
+
+## Shorcuts tmux
 |Shorcut|Plugin|Description|
 |-------|------|-----------|
 |\<C-a\>|standard|prefix command |
