@@ -13,7 +13,7 @@ This is my dotfiles
 
 ## Installation on Ubuntu
 ```shell
-sudo /bin/bash macos_setup.sh
+sudo /bin/bash ubuntu_setup.sh
 ```
 
 ## Installation on MacOS
@@ -45,7 +45,19 @@ After that in nvim command run commands bellow:
 |neo-tree | File explorer|
 |lualine | nvim status line|
 
+## Mason additional setup
+### linter
+Launch nvim and type `:Mason` then type `4` and install:  
+- tflint
+- flake8
+- trivy
 
+### Formatter
+Launch nvim and type `:Mason` then type `5` and install:
+- prettier
+- stylua
+- black
+- shfmt
 
 ## Shorcuts nvim
 

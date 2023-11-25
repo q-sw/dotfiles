@@ -5,7 +5,13 @@ lsp.preset("recommended")
 lsp.ensure_installed({
     "pylsp",
     "gopls",
-    "terraformls"
+    "terraformls",
+    "tflint",
+    "rust_analyzer",
+    "lua_ls",
+    "marksman",
+    "bashls",
+    "cmake",
 })
 
 -- Fix Undefined global 'vim'
