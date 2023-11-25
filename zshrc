@@ -119,6 +119,7 @@ source $ZSH/oh-my-zsh.sh
 alias vim=nvim
 alias gs="git status"
 alias src-zsh="source /home/quentin/.zshrc"
+alias start-cam="/home/quentin/dev/Github/public/dotfiles/7D_webcam.sh"
 eval "$(op completion zsh)"; compdef _op op
 source /usr/lib/google-cloud-sdk/completion.bash.inc
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
