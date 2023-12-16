@@ -96,7 +96,8 @@ Launch nvim and type `:Mason` then type `5` and install:
 |normal|[d|lsp|Move to the next diagnostic|
 |normal|]d|lsp|Move to the previous diagnostic|
 |normal|\<learder\>vrr|lsp|Search all occurrences of the expression under the cursor|
-|normal\<learder\>vrn||lsp|Rename all occurrences of the expression under the cursor|
+|normal|\<learder\>vrn|lsp|Rename all occurrences of the expression under the cursor|
+|insert|\<C-h\>| Get help|
 
 # Setup tmux
 To finish the tmux setup you should start a new tmux session `tmux` and press `\<C-a\>I` 
