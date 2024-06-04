@@ -6,17 +6,41 @@ This is my dotfiles
 - tmux
 - zsh
 - p10k
+- i3
+- alacritty
 
 ## Requirements
 - sudo permissions
- 
+- ansible 
+- git
+
+### Install Requirements
+
+#### Install Git
+
+```shell
+sudo apt update
+sudo apt install git -y
+```
+
+#### Install Ansible
+
+```shell
+sudo apt update
+sudo apt install software-properties-common
+sudo add-apt-repository --yes --update ppa:ansible/ansible
+sudo apt install ansible
+```
 
 ## Installation on Ubuntu
+
 ```shell
-sudo /bin/bash ubuntu_setup.sh
+cd 00_ubuntu_setup
+ansible-playbook setup.yaml -e @variables.yaml --ask-become-pass
 ```
 
 ## Installation on MacOS
+
 ```shell
 sudo /bin/bash macos_setup.sh
 ```
@@ -30,11 +54,12 @@ After that in nvim command run commands bellow:
 - :PackerSync
 
 ## Installed plugins
+
 |Plugin Name|Description|
 |-----------|-----------|
 |packer | nvim plugin manager|
 |nvim-telescope | File finder|
-|rose-pine | colorscheme|
+|catppuccin | colorscheme|
 |nvim-treesitter | Colorize code in function of file type|
 |harpoon | harpoon file to access it quickly|
 |undotree | change file tracker|
