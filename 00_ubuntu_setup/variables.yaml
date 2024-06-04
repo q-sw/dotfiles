@@ -1,0 +1,97 @@
+---
+system_packages:
+  - git
+  - cmake
+  - pkg-config
+  - libfreetype6-dev # dep for alacrity
+  - libfontconfig1-dev # dep for alacrity 
+  - libxcb-xfixes0-dev # dep for alacrity
+  - libxkbcommon-dev # dep for alacrity
+  - cargo # dep for alacrity
+  - zsh
+  - curl
+  - unzip
+  - ripgrep # dep for telescope
+  - npm # dep for lsp server
+  - tmux
+  - python3-pip
+  - python3-venv
+  - ca-certificates
+  - gnupg
+  - apt-transport-https
+  - tree
+  - stow
+  - i3
+  - dmenu
+  - i3lock
+
+oh_my_zsh_path: "/home/quentin/.oh-my-zsh"
+
+zsh_addons:
+  - {src: "https://github.com/romkatv/powerlevel10k.git", dest: "{{oh_my_zsh_path}}/themes/powerlevel10k"}
+  - {src: "https://github.com/zsh-users/zsh-syntax-highlighting.git", dest: "{{oh_my_zsh_path}}/custom/plugins/zsh-syntax-highlighting"}
+  - {src: "https://github.com/zsh-users/zsh-autosuggestions", dest: "{{oh_my_zsh_path}}/custom/plugins/zsh-autosuggestions"}
+
+neovim_version: v0.10.0
+
+package_from_repo:
+  - name: gcloud
+    packages: 
+      - google-cloud-cli
+      - kubectl
+    key_file_name: cloud.google.gpg 
+    gpg_key_url: https://packages.cloud.google.com/apt/doc/apt-key.gpg 
+    repo_url: https://packages.cloud.google.com/apt
+    repo_type: cloud-sdk
+    release_channel: main
+  - name: docker
+    packages: 
+      - docker-ce
+      - docker-ce-cli
+      - docker-buildx-plugin
+      - docker-compose-plugin
+      - containerd.io
+    key_file_name: docker.gpg
+    gpg_key_url: "https://download.docker.com/linux/ubuntu/gpg"
+    repo_url: https://download.docker.com/linux/ubuntu
+    repo_type: "{{ansible_distribution_release}}"
+    release_channel: stable
+  - name: terraform
+    packages:
+      - terraform
+    key_file_name: hashicorp-archive-keyring.gpg 
+    gpg_key_url: https://apt.releases.hashicorp.com/gpg
+    repo_url: https://apt.releases.hashicorp.com
+    repo_type: "{{ansible_distribution_release}}"
+    release_channel: main
+  - name: helm
+    packages: 
+      - helm
+    key_file_name: helm.gpg
+    gpg_key_url: https://baltocdn.com/helm/signing.asc 
+    repo_url: https://baltocdn.com/helm/stable/debian/
+    repo_type: all
+    release_channel: main
+  - name: tailscale
+    packages: 
+      - tailscale
+    key_file_name: tailscale-archive-keyring.gpg 
+    gpg_key_url: https://pkgs.tailscale.com/stable/ubuntu/jammy.noarmor.gpg
+    repo_url: https://pkgs.tailscale.com/stable/ubuntu 
+    repo_type: "{{ansible_distribution_release}}"
+    release_channel: main
+  - name: brave
+    packages: 
+      - brave-browser
+    key_file_name: brave-browser-archive-keyring.gpg 
+    gpg_key_url: https://brave-browser-apt-release.s3.brave.com/brave-browser-archive-keyring.gpg
+    repo_url: https://brave-browser-apt-release.s3.brave.com
+    repo_type: stable
+    release_channel: main
+
+user_docker:
+  - quentin
+
+nerd_fonts_name:
+  - FiraCode
+  - Meslo

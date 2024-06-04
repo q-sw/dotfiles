@@ -1,0 +1,8 @@
+---
+name: ""             # The repositoriy name
+key_file_name: ""    # The key name as you want to see it in your system
+gpg_key_url: ""      # The download gpg key URL
+repo_url: ""         # The repositoriy URL
+repo_type: ""        # The repositoriy distrubution or type
+release_channel: ""  # The release channel to use
+

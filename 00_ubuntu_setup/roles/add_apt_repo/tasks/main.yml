@@ -1,0 +1,17 @@
+---
+# tasks file for add_apt_repo
+- name: "Check if key is present"
+  ansible.builtin.stat:
+    path: "/etc/apt/trusted.gpg.d/{{key_file_name}}"
+  register: stat_file
+
+- name: "Add repository"
+  block:
+    - name: "Download key for {{name}}"
+      ansible.builtin.shell:
+        cmd: "curl {{gpg_key_url}} | gpg --dearmor -o /etc/apt/trusted.gpg.d/{{key_file_name}}"
+
+    - name: "Add repository for {{name}}"
+      ansible.builtin.apt_repository:
+        repo: "deb [arch=amd64 signed-by=/etc/apt/trusted.gpg.d/{{key_file_name}}] {{repo_url}} {{repo_type}} {{release_channel}}"
+  when: not stat_file.stat.exists
