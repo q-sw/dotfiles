@@ -116,11 +116,10 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
-alias vim=nvim
+alias vim=/usr/local/bin/nvim-linux64/bin/nvim
 alias gs="git status"
 alias src-zsh="source /home/quentin/.zshrc"
 alias start-cam="/home/quentin/dev/Github/public/dotfiles/7D_webcam.sh"
-eval "$(op completion zsh)"; compdef _op op
 source /usr/lib/google-cloud-sdk/completion.bash.inc
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
