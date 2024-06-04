@@ -11,11 +11,18 @@ return require('packer').startup(function(use)
         requires = { { 'nvim-lua/plenary.nvim' } }
     }
 
+    --  use({
+    --      'rose-pine/neovim',
+    --      as = 'rose-pine',
+    --      config = function()
+    --          vim.cmd('colorscheme rose-pine')
+    --      end
+    --  })
     use({
-        'rose-pine/neovim',
-        as = 'rose-pine',
+        "catppuccin/nvim",
+        as = "catppuccin",
         config = function()
-            vim.cmd('colorscheme rose-pine')
+            vim.cmd('colorscheme catppuccin-mocha')
         end
     })
 
@@ -62,4 +69,15 @@ return require('packer').startup(function(use)
     }
     use('nvim-lualine/lualine.nvim')
     use('lewis6991/gitsigns.nvim')
+    use({
+        "utilyre/barbecue.nvim",
+        tag = "*",
+        requires = {
+            "SmiteshP/nvim-navic",
+            -- "nvim-tree/nvim-web-devicons", -- optional dependency
+        },
+        config = function()
+            require("barbecue").setup()
+        end,
+    })
 end)
