@@ -6,7 +6,7 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
 fi
 
 # If you come from bash you might have to change your $PATH.
-export PATH=$PATH:/usr/local/go/bin:/home/quentin/go/bin
+export PATH=$PATH:/usr/local/go/bin:/home/quentin/go/bin:/home/quentin/.tmux/plugins/tmuxifier/bin
 
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
@@ -121,5 +121,10 @@ alias gs="git status"
 alias src-zsh="source /home/quentin/.zshrc"
 alias start-cam="/home/quentin/dev/Github/public/dotfiles/7D_webcam.sh"
 source /usr/lib/google-cloud-sdk/completion.bash.inc
+
+# Tmuxifier 
+export TMUXIFIER_LAYOUT_PATH="$HOME/.tmuxifier"
+eval "$(tmuxifier init -)"
+
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
