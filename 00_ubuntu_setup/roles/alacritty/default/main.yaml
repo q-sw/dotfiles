@@ -1,0 +1,9 @@
+system_packages:
+  - cmake
+  - libfreetype6-dev # dep for alacrity
+  - libfontconfig1-dev # dep for alacrity 
+  - libxcb-xfixes0-dev # dep for alacrity
+  - libxkbcommon-dev # dep for alacrity
+  - cargo # dep for alacrity
+  - curl
+  - git
