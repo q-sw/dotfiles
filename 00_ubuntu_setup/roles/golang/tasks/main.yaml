@@ -1,0 +1,20 @@
+---
+- name: "Install apt common package"
+  ansible.builtin.package:
+    name: "{{ system_packages }}"
+    state: present
+
+- name: "Check GO repo is present"
+  ansible.builtin.stat:
+    path: "/etc/apt/trusted.gpg.d/longsleep-ubuntu-golang-backports.gpg"
+  register: stat_go_gpg
+
+- name: "Add apt repository for Go"
+  ansible.builtin.shell:
+    cmd: add-apt-repository -y ppa:longsleep/golang-backports
+  when: not stat_go_gpg.stat.exists
+
+- name: "Install go"
+  ansible.builtin.apt:
+    name: golang-go
+    update_cache: yes
