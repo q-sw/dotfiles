@@ -1,0 +1,24 @@
+---
+- name: "Install apt common package"
+  ansible.builtin.package:
+    name: "{{ system_packages }}"
+    state: present
+
+- name: "Check if Oh-my-zsh is present"
+  ansible.builtin.stat:
+    path: "{{ oh_my_zsh_path }}"
+  register: stat_oh_my_zsh
+
+- name: "Install oh-my-zsh"
+  ansible.builtin.shell:
+    cmd: |
+      sh -c \
+      "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" \
+      "" --skip-chsh --unattendedu
+  when: not stat_oh_my_zsh.stat.exists
+
+- name: "Install ZSH addons"
+  ansible.builtin.git:
+    repo: "{{item.src}}"
+    dest: "{{item.dest}}"
+  loop: "{{oh_my_zsh_addons}}"

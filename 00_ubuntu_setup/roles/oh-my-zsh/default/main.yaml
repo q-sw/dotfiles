@@ -1,0 +1,14 @@
+system_packages:
+  - curl
+  - git
+  - zsh
+
+oh_my_zsh_path: "{{ansible_user_dir}}/.oh-my-zsh"
+
+oh_my_zsh_addons: []
+
+### exemples
+#oh_my_zsh_addons:
+#  - {src: "https://github.com/romkatv/powerlevel10k.git", dest: "{{oh_my_zsh_path}}/themes/powerlevel10k"}
+#  - {src: "https://github.com/zsh-users/zsh-syntax-highlighting.git", dest: "{{oh_my_zsh_path}}/custom/plugins/zsh-syntax-highlighting"}
+#  - {src: "https://github.com/zsh-users/zsh-autosuggestions", dest: "{{oh_my_zsh_path}}/custom/plugins/zsh-autosuggestions"}
