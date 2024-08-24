@@ -1,0 +1,8 @@
+system_packages:
+  - unzip
+  - curl
+  - git
+  - ripgrep # dep for telescope
+  - npm # dep for lsp server
+
+neovim_version: 3.2.1
