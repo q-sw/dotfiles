@@ -7,64 +7,6 @@
         name: "{{ system_packages }}"
         state: present
 
-    - name: "Oh-my-zsh"
-      block:
-        - name: "Check if Oh-my-zsh is present"
-          ansible.builtin.stat:
-            path: "{{ oh_my_zsh_path }}"
-          register: stat_oh_my_zsh
-
-        - name: "Install oh-my-zsh"
-          ansible.builtin.shell:
-            cmd: |
-              sh -c \
-              "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" \
-              "" --skip-chsh --unattendedu
-          when: not stat_oh_my_zsh.stat.exists
-
-        - name: "Install ZSH addons"
-          ansible.builtin.git:
-            repo: "{{item.src}}"
-            dest: "{{item.dest}}"
-          loop: "{{zsh_addons}}"
-
-    - name: "Tmux plugin manager"
-      block:
-        - name: "Clone tpm"
-          ansible.builtin.git:
-            repo: https://github.com/tmux-plugins/tpm
-            dest: "{{ansible_user_dir}}/.tmux/plugins/tpm"
-    - name: "Neovim"
-      block:
-        - name: "Download Neovim"
-          become: yes
-          ansible.builtin.unarchive:
-            src: "https://github.com/neovim/neovim/releases/download/{{neovim_version}}/nvim-linux64.tar.gz"
-            dest: "/usr/local/bin/"
-            remote_src: yes
-        - name: "Install Packer plugin manager"
-          ansible.builtin.git:
-            repo: https://github.com/wbthomason/packer.nvim
-            dest: "{{ansible_user_dir}}/.local/share/nvim/site/pack/packer/start/packer.nvim"
-            depth: 1 
-
-    - name: "Check GO repo is present"
-      ansible.builtin.stat:
-        path: "/etc/apt/trusted.gpg.d/longsleep-ubuntu-golang-backports.gpg"
-      register: stat_go_gpg
-
-    - name: "Add apt repository for Go"
-      become: yes
-      ansible.builtin.shell:
-        cmd: add-apt-repository -y ppa:longsleep/golang-backports
-      when: not stat_go_gpg.stat.exists
-
-    - name: "Install go"
-      become: yes
-      ansible.builtin.apt:
-        name: golang-go
-        update_cache: yes
-
     - name: "Add new apt repository and install package"
       become: yes
       block:
@@ -94,50 +36,44 @@
         append: yes
       loop: "{{user_docker}}"
 
+    - name: "Golang"
+      become: yes
+      block:
+        ansible.builtin.include_role:
+          name: golang
+      when: golang
+
+    - name: "Oh-my-ZSH"
+      become: yes
+      block:
+        ansible.builtin.include_role:
+          name: oh-my-zsh
+      when: oh_my_zsh
+
+    - name: "TMUX"
+      become: yes
+      block:
+        ansible.builtin.include_role:
+          name: tmux
+      when: tmux
+
+    - name: "Neovim"
+      become: yes
+      block:
+        ansible.builtin.include_role:
+          name: neovim
+      when: neovim
+        
     - name: "Download Nerd Font"
       become: yes
-      ansible.builtin.unarchive:
-        src: "https://github.com/ryanoasis/nerd-fonts/releases/download/v3.2.1/{{item}}.zip"
-        dest: "/usr/local/share/fonts"
-        remote_src: yes
-      loop: "{{nerd_fonts_name}}"
-      tags:
-       - fonts
-       - default
-
-    - name: "Update system font cache"
-      become: yes
-      ansible.builtin.shell:
-        cmd: fc-cache -fv
-
+      block:
+        ansible.builtin.include_role:
+          name: nerd_font
+      when: nerd_font
+  
     - name: "alacritty"
       become: yes
       block:
-        - name: "Clone Alacritty repo"
-          ansible.builtin.git:
-            repo: "https://github.com/alacritty/alacritty.git"
-            dest: "/opt/alacritty"
-          register: alacritty_changed
-        - name: "Install Rust"
-          ansible.builtin.shell:
-            cmd: curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y
-          when: alacritty_changed.changed
-        - name: "Build Alacritty"
-          ansible.builtin.shell:
-            cmd: cargo build --release
-            chdir: /opt/alacritty
-          when: alacritty_changed.changed
-        - name: "Add terminfo"
-          ansible.builtin.shell:
-            cmd: tic -xe alacritty,alacritty-direct extra/alacritty.info
-            chdir: /opt/alacritty
-          when: alacritty_changed.changed
-        - name: "Add desktop entry"
-          ansible.builtin.shell:
-            cmd: |
-              cp target/release/alacritty /usr/local/bin
-              cp extra/logo/alacritty-term.svg /usr/share/pixmaps/Alacritty.svg
-              desktop-file-install extra/linux/Alacritty.desktop
-              update-desktop-database
-            chdir: /opt/alacritty
-          when: alacritty_changed.changed
+        ansible.builtin.include_role:
+          name: alacritty
+      when: alacritty 
