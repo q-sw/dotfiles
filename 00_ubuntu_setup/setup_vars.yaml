@@ -1,0 +1,7 @@
+alacritty: true
+nerd_font: true
+neovim: true
+tmux: true
+oh_my_zsh: true
+
+golang: true
