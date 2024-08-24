@@ -1,31 +1,28 @@
 ---
-system_packages:
+user_name: quentin
+default_packages:
   - git
   - cmake
   - pkg-config
-  - libfreetype6-dev # dep for alacrity
-  - libfontconfig1-dev # dep for alacrity 
-  - libxcb-xfixes0-dev # dep for alacrity
-  - libxkbcommon-dev # dep for alacrity
-  - cargo # dep for alacrity
-  - zsh
   - curl
   - unzip
-  - ripgrep # dep for telescope
-  - npm # dep for lsp server
-  - tmux
-  - python3-pip
-  - python3-venv
   - ca-certificates
   - gnupg
   - apt-transport-https
   - tree
   - stow
+
+
+  - python3
+  - python3-pip
+  - python3-venv
+
+
   - i3
   - dmenu
   - i3lock
 
-oh_my_zsh_path: "/home/quentin/.oh-my-zsh"
+oh_my_zsh_path: "{{ansible_user_dir}}/.oh-my-zsh"
 
 zsh_addons:
   - {src: "https://github.com/romkatv/powerlevel10k.git", dest: "{{oh_my_zsh_path}}/themes/powerlevel10k"}
@@ -59,6 +56,7 @@ package_from_repo:
   - name: terraform
     packages:
       - terraform
+      - packer
     key_file_name: hashicorp-archive-keyring.gpg 
     gpg_key_url: https://apt.releases.hashicorp.com/gpg
     repo_url: https://apt.releases.hashicorp.com
@@ -90,7 +88,7 @@ package_from_repo:
     release_channel: main
 
 user_docker:
-  - quentin
+  - "{{user_name}}"
 
 nerd_fonts_name:
   - FiraCode
