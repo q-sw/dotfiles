@@ -4,7 +4,7 @@ vim.g.mapleader = " "
 vim.keymap.set("n", "<leader>pv", vim.cmd.Ex)
 
 --- Escape
-vim.keymap.set("i", "jk", "<ESC>")
+vim.keymap.set("i", "jj", "<ESC>")
 
 --- Move up and down bloc of line select in visual mode
 vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
