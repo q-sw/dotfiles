@@ -48,8 +48,8 @@ alias ll="ls -lathr"
 alias vim="/usr/local/bin/nvim-linux64/bin/nvim"
 alias v="/usr/local/bin/nvim-linux64/bin/nvim"
 
-
 alias gs="git status"
+alias gc="git commit -m"
 alias lg="lazygit"
 
 alias k="kubectl"
