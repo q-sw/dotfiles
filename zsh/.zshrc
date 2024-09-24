@@ -13,6 +13,7 @@ path=(
     $HOME/go/bin
     /usr/local/go/bin
     /usr/local/bin/nvim-linux64/bin
+    $HOME/.tmux/plugins/tmuxifier/bin
 )
 
 typeset -U path
