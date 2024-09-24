@@ -1,0 +1,10 @@
+---
+name: gcloud
+packages:
+  - google-cloud-cli
+  - kubectl
+key_file_name: cloud.google.gpg
+gpg_key_url: https://packages.cloud.google.com/apt/doc/apt-key.gpg
+repo_url: https://packages.cloud.google.com/apt
+repo_type: cloud-sdk
+release_channel: main

@@ -1,0 +1,9 @@
+---
+- name: "Install gcloud"
+  ansible.builtin.include_role:
+    name: add_apt_repo
+
+- name: "Install Packages"
+  ansible.builtin.apt:
+    name: "{{ packages }}"
+    update_cache: true
