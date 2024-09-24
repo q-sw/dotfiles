@@ -1,0 +1,66 @@
+---
+- hosts: localhost
+  become: true
+  tasks:
+    - name: "install general package"
+      ansible.builtin.package:
+        package: "{{ default_packages }}"
+        state: present
+      tags:
+        - general
+
+    - name: "install Browser"
+      ansible.builtin.include_role:
+        name: "{{ item.name }}"
+      when: item.install
+      loop: "{{ browser }}"
+      tags:
+        - browser
+
+    - name: "install Tools"
+      ansible.builtin.include_role:
+        name: "{{ item.name }}"
+      when: item.install
+      loop: "{{ tools }}"
+      tags:
+        - tools
+
+    - name: "install Programming language"
+      ansible.builtin.include_role:
+        name: "{{ item.name }}"
+      when: item.install
+      loop: "{{ programming }}"
+      tags:
+        - programming
+
+    - name: "install Cloud"
+      ansible.builtin.include_role:
+        name: "{{ item.name }}"
+      when: item.install
+      loop: "{{ cloud }}"
+      tags:
+        - cloud
+
+    - name: "install Container"
+      ansible.builtin.include_role:
+        name: "{{ item.name }}"
+      when: item.install
+      loop: "{{ container }}"
+      tags:
+        - container
+
+    - name: "install terminal"
+      ansible.builtin.include_role:
+        name: "{{ item.name }}"
+      when: item.install
+      loop: "{{ terminal }}"
+      tags:
+        - terminal
+
+    - name: "install font"
+      ansible.builtin.include_role:
+        name: "{{ item.name }}"
+      when: item.install
+      loop: "{{ font }}"
+      tags:
+        - font
