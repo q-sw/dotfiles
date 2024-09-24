@@ -27,6 +27,9 @@ return require("packer").startup(function(use)
 			{ "WhoIsSethDaniel/mason-tool-installer.nvim" },
 
 			-- AUTO COMPLETE
+			--
+			{ "saadparwaiz1/cmp_luasnip" },
+			{ "hrsh7th/cmp-nvim-lua" },
 			{ "hrsh7th/cmp-nvim-lsp" },
 			{ "hrsh7th/cmp-buffer" },
 			{ "hrsh7th/cmp-path" },
@@ -36,6 +39,8 @@ return require("packer").startup(function(use)
 			-- SNIPPSET
 			{ "hrsh7th/cmp-vsnip" },
 			{ "hrsh7th/vim-vsnip" },
+			{ "L3MON4D3/LuaSnip" },
+			{ "rafamadriz/friendly-snippets" },
 		},
 	})
 
