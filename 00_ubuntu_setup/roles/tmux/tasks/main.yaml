@@ -7,4 +7,5 @@
 - name: "Tmux plugin manager"
   ansible.builtin.git:
     repo: https://github.com/tmux-plugins/tpm
-    est: "{{ansible_user_dir}}/.tmux/plugins/tpm"
+    dest: "{{ansible_user_dir}}/.tmux/plugins/tpm"
+

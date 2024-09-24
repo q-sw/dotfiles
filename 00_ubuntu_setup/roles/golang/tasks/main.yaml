@@ -17,4 +17,5 @@
 - name: "Install go"
   ansible.builtin.apt:
     name: golang-go
-    update_cache: yes
+    update_cache: true
+
