@@ -3,10 +3,7 @@ general {
         interval = 5
 }
 
-order += "volume master"
-order += "disk /"
-order += "cpu_usage"
-order += "memory"
+order += "battery 0"
 order += "tztime local"
 
 
@@ -14,20 +11,13 @@ tztime local {
         format = "%Y-%m-%d %H:%M:%S"
 }
 
-cpu_usage {
-        format = "%usage"
-}
-
-memory {
-    format = "%used/%total"
-}
-
-disk "/" {
-        format = "%avail/%total"
-}
-
-volume master {
-        format = "♪: %volume"
-        format_muted = "♪: muted (%volume)"
-        device = "alsa_output.pci-0000_00_1f.3.analog-stereo"
+battery 0 {
+        format = "%status %percentage"
+        format_down = "No battery"
+        status_chr = "⚡ CHR"
+        status_bat = "🔋 BAT"
+        status_unk = "? UNK"
+        status_full = "☻ FULL"
+        path = "/sys/class/power_supply/BAT%d/uevent"
+        low_threshold = 10
 }
