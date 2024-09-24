@@ -1,0 +1,16 @@
+---
+name: docker
+packages:
+  - docker-ce
+  - docker-ce-cli
+  - docker-buildx-plugin
+  - docker-compose-plugin
+  - containerd.io
+key_file_name: docker.gpg
+gpg_key_url: "https://download.docker.com/linux/ubuntu/gpg"
+repo_url: https://download.docker.com/linux/ubuntu
+repo_type: "{{ansible_distribution_release}}"
+release_channel: stable
+
+user_docker:
+  - "{{user_name}}"

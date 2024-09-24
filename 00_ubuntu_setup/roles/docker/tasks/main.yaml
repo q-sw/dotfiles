@@ -1,0 +1,16 @@
+---
+- name: "Install Docker"
+  ansible.builtin.include_role:
+    name: add_apt_repo
+
+- name: "Install Packages"
+  ansible.builtin.apt:
+    name: "{{ packages }}"
+    update_cache: true
+
+- name: "Add user in docker group"
+  ansible.builtin.user:
+    name: "{{ item }}"
+    groups: docker
+    append: true
+  loop: "{{ user_docker }}"
