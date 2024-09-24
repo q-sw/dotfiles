@@ -13,4 +13,4 @@ repo_type: "{{ansible_distribution_release}}"
 release_channel: stable
 
 user_docker:
-  - "{{user_name}}"
+  - "{{ docker_users }}"
