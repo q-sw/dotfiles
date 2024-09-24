@@ -1,0 +1,9 @@
+---
+name: tailscale
+packages:
+  - tailscale
+key_file_name: tailscale-archive-keyring.gpg
+gpg_key_url: https://pkgs.tailscale.com/stable/ubuntu/jammy.noarmor.gpg
+repo_url: https://pkgs.tailscale.com/stable/ubuntu
+repo_type: "{{ansible_distribution_release}}"
+release_channel: main
