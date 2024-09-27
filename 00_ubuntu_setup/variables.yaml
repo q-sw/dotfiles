@@ -26,6 +26,8 @@ tools:
     install: true
   - name: tailscale
     install: true
+  - name: minikube
+    install: true
 
 programming:
   - name: golang
