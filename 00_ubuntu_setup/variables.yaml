@@ -28,6 +28,8 @@ tools:
     install: true
   - name: minikube
     install: true
+  - name: pure_prompt
+    install: true
 
 programming:
   - name: golang
