@@ -33,6 +33,9 @@ tiling_drag modifier titlebar
 # lock screen
 bindsym $mod+CTRL+l exec i3lock -c 000000
 
+# Display management
+bindsym $mod+Shift+p exec --no-startup-id ~/.config/i3/screen_manager.sh
+
 # start a terminal
 bindsym $mod+Return exec alacritty
 
