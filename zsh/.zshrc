@@ -68,8 +68,10 @@ alias src-zsh="source ${HOME}/.zshrc"
 ### completion
 fpath+=~/.zfunc
 
-autoload -Uz compinit
-compinit -u
+autoload -U compinit; compinit
 
-zstyle ':completion:*' menu select
-fpath+=~/.zfunc; autoload -Uz compinit; compinit
+#zstyle ':completion:*' menu select
+#fpath+=~/.zfunc; autoload -U compinit; compinit
+# kubectl
+[[ $commands[kubectl] ]] && source <(kubectl completion zsh)
+
