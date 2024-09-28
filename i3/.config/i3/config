@@ -30,6 +30,8 @@ bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOU
 # move tiling windows via drag & drop by left-clicking into the title bar,
 # or left-clicking anywhere into the window while holding the floating modifier.
 tiling_drag modifier titlebar
+# lock screen
+bindsym $mod+CTRL+l exec i3lock -c 000000
 
 # start a terminal
 bindsym $mod+Return exec alacritty
