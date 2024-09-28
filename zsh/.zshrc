@@ -39,6 +39,7 @@ prompt pure
 source $HOME/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
 source $HOME/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 ### alias
+alias dev="cd ~/dev"
 alias c="clear"
 alias t="tmux"
 alias e="exit"
