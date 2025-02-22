@@ -1,0 +1,8 @@
+---
+- name: "Install Terraform"
+  ansible.builtin.include_role:
+    name: add_apt_repo
+- name: "Install Packages"
+  ansible.builtin.apt:
+    name: "{{ packer_packages }}"
+    update_cache: true

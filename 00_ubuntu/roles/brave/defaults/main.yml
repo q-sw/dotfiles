@@ -1,0 +1,9 @@
+---
+repo_name: brave
+brave_packages:
+  - brave-browser
+repo_key_file_name: brave-browser-archive-keyring.gpg
+repo_gpg_key_url: https://brave-browser-apt-release.s3.brave.com/brave-browser-archive-keyring.gpg
+repo_repo_url: https://brave-browser-apt-release.s3.brave.com
+repo_repo_type: stable
+repo_release_channel: main

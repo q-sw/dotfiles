@@ -1,0 +1,89 @@
+---
+### Programs and tools to install
+browser:
+  - name: brave
+    install: true
+  - name: firefox
+    install: false
+
+tools:
+  - name: neovim
+    install: true
+  - name: tmux
+    install: true
+  - name: i3
+    install: true
+  - name: oh_my_zsh
+    install: false
+  - name: terraform
+    install: true
+  - name: packer
+    install: true
+  - name: packer
+    install: true
+  - name: helm
+    install: true
+  - name: tailscale
+    install: true
+  - name: minikube
+    install: true
+  - name: pure_prompt
+    install: true
+
+programming:
+  - name: golang
+    install: true
+  - name: python
+    install: true
+
+cloud:
+  - name: gcloud
+    install: true
+  - name: aws
+    install: false
+
+container:
+  - name: docker
+    install: true
+
+terminal:
+  - name: alacritty
+    install: true
+
+font:
+  - name: nerd_font
+    install: true
+
+### Specific playbook configuration
+default_packages:
+  - git
+  - cmake
+  - pkg-config
+  - curl
+  - unzip
+  - ca-certificates
+  - gnupg
+  - apt-transport-https
+  - tree
+  - stow
+docker_users:
+  - quentin
+
+nerd_fonts_name:
+  - FiraCode
+  - Meslo
+
+neovim_version: v0.10.0
+# oh_my_zsh_addons:
+#  - {
+#    src: "https://github.com/romkatv/powerlevel10k.git",
+#    dest: "{{oh_my_zsh_path}}/themes/powerlevel10k",
+#  }
+#  - {
+#    src: "https://github.com/zsh-users/zsh-syntax-highlighting.git",
+#    dest: "{{oh_my_zsh_path}}/custom/plugins/zsh-syntax-highlighting",
+#  }
+#  - {
+#    src: "https://github.com/zsh-users/zsh-autosuggestions",
+#    dest: "{{oh_my_zsh_path}}/custom/plugins/zsh-autosuggestions",
+#  }

@@ -1,0 +1,6 @@
+---
+i3_system_packages:
+  - i3
+  - i3lock
+  - dmenu
+  - pulseaudio-utils
