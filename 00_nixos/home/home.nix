@@ -26,6 +26,7 @@
     fzf
     go
     google-cloud-sdk
+    gnumake
     i3status
     kubernetes-helm
     lazygit
