@@ -12,6 +12,7 @@
             BROWSER = "firefox";
         };
         localVariables = {
+            PATH = "/usr/bin:$PATH";
             XDG_CONFIG_HOME = "~/.config";
         };
         shellAliases = {
