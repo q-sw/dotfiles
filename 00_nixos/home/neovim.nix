@@ -14,6 +14,10 @@
                 nvim-lspconfig
                 nvim-cmp
                 cmp-nvim-lsp
+                {
+                    plugin = conform-nvim;
+                    config = toLuaFile ./nvim/conform.lua;
+                }
                 tokyonight-nvim
                 {
                     plugin = lsp-zero-nvim;
