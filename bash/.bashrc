@@ -26,8 +26,9 @@ alias grep='grep --color=auto'
 alias fgrep='fgrep --color=auto'
 alias egrep='egrep --color=auto'
 
-alias vim="/opt/nvim-linux-x86_64/bin/nvim"
-alias v="/opt/nvim-linux-x86_64/bin/nvim"
+alias vim="/usr/local/bin/nvim-linux-x86_64/bin/nvim"
+alias v="/usr/local/bin/nvim-linux-x86_64/bin/nvim"
+
 
 alias gs="git status"
 alias gc="git commit -m"
