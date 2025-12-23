@@ -2,15 +2,14 @@
 
 tmux_running=$(pgrep tmux)
 
-
 # if $TMUX is empty and $tmux_running is empty
 if [[ -z $TMUX ]] && [[ -z $tmux_running ]]; then
     tmux start-server
 fi
 
-if ! tmux has-session -t=main 2> /dev/null; then
-    tmux new-session -ds main -c ${HOME}
-    tmux rename-window -t main:1 shell 
+if ! tmux has-session -t=main 2>/dev/null; then
+    tmux new-session -ds main -c "${HOME}"
+    tmux rename-window -t main:1 shell
     tmux new-window -t main -n dotfile -c ~/dev/github/dotfiles
 fi
 
