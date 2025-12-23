@@ -79,6 +79,8 @@ require("mason-tool-installer").setup({
 		"goimports",
 		"prettier",
 		"stylua",
+		"shellcheck",
+		"shfmt",
 	},
 })
 
@@ -99,6 +101,8 @@ lint.linters_by_ft = {
 	python = { "trivy", "flake8", "pylint" },
 	terraform = { "trivy", "tflint", "tfsec" },
 	yaml = { "yamllint" },
+	bash = { "shellcheck" },
+	sh = { "shellcheck" },
 }
 
 local lint_augroup = vim.api.nvim_create_augroup("lint", { clear = true })
@@ -145,6 +149,8 @@ conform.setup({
 		python = { "black" },
 		go = { "goimports" },
 		terraform = { "terraform", "fmt", "-" },
+		bash = { "shfmt" },
+		sh = { "shfmt" },
 	},
 	format_on_save = {
 		lsp_fallback = true,
