@@ -1,4 +1,6 @@
-### editing mode
+#!/bin/bash
+
+# editing mode
 #set -o vi
 export VISUAL=nvim
 export EDITOR=nvim
@@ -41,22 +43,29 @@ alias tfa="terraform apply"
 alias tfaa="terraform apply --auto-approve"
 alias tfd="terraform destroy"
 
-alias src-bash="source ${HOME}/.bashrc"
-alias gauth="rm $HOME/.config/gcloud/*.db && gcloud auth login --update-adc"
+alias src-bash='source $HOME/.bashrc'
+alias gauth='rm ${HOME}/.config/gcloud/*.db && gcloud auth login --update-adc'
 
 export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"                   # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion" # This loads nvm bash_completion
+# shellcheck disable=SC1091
+[ -s "$NVM_DIR/nvm.sh" ] && \. "${NVM_DIR}/nvm.sh"                   # This loads nvm
+# shellcheck disable=SC1091
+[ -s "$NVM_DIR/bash_completion" ] && \. "${NVM_DIR}/bash_completion" # This loads nvm bash_completion
 
 # set variable identifying the chroot you work in (used in the prompt below)
 if [ -z "${debian_chroot:-}" ] && [ -r /etc/debian_chroot ]; then
     debian_chroot=$(cat /etc/debian_chroot)
 fi
 
-source ~/dotfiles/bash/prompt
+# shellcheck disable=SC1091
+source "${HOME}/dotfiles/bash/prompt"
+# shellcheck disable=SC1090
 source <(kubectl completion bash)
 complete -o default -F __start_kubectl k
 
+# shellcheck disable=SC1091
 source /usr/share/doc/fzf/examples/key-bindings.bash
+# shellcheck disable=SC1090
 source <(flux completion bash)
+# shellcheck disable=SC1091
 source /etc/bash_completion
