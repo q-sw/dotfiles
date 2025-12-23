@@ -6,14 +6,17 @@ return require("packer").startup(function(use)
 
 	use("christoomey/vim-tmux-navigator")
 	use("lukas-reineke/indent-blankline.nvim")
+
+	use("f-person/auto-dark-mode.nvim")
+	use("projekt0n/github-nvim-theme")
 	--- Color scheme
-	use({
-		"projekt0n/github-nvim-theme",
-		config = function()
-			vim.cmd("colorscheme github_dark_dimmed")
-			-- vim.cmd("colorscheme github_light")
-		end,
-	})
+	--- use({
+	--- 	"projekt0n/github-nvim-theme",
+	--- 	config = function()
+	--- 		--vim.cmd("colorscheme github_dark_dimmed")
+	--- 		vim.cmd("colorscheme github_light_default")
+	--- 	end,
+	--- })
 
 	--- Telescope
 	use({
