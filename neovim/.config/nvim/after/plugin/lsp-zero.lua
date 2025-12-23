@@ -139,11 +139,12 @@ local conform = require("conform")
 conform.setup({
 	formatters_by_ft = {
 		json = { "prettier" },
-		yaml = { "prettier" },
-		markdown = { "prettier" },
+		yaml = { "yamllint" },
+		markdown = { "markdownlint" },
 		lua = { "stylua" },
 		python = { "black" },
 		go = { "goimports" },
+		terraform = { "terraform", "fmt", "-" },
 	},
 	format_on_save = {
 		lsp_fallback = true,
