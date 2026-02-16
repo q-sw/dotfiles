@@ -21,7 +21,11 @@ fi
 
 # Git prompt functions
 parse_git_branch() {
-    git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/ (\1)/'
+    local branch
+    branch=$(git symbolic-ref --short HEAD 2>/dev/null || git rev-parse --short HEAD 2>/dev/null)
+    if [ -n "$branch" ]; then
+        echo " ($branch)"
+    fi
 }
 
 parse_git_dirty() {
