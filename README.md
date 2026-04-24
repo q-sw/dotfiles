@@ -74,3 +74,47 @@ This repo uses pre-commit hooks:
 pip install pre-commit
 pre-commit install
 ```
+
+## Keyboard Shortcuts
+
+### VS Code (Neovim Mode)
+
+| Shortcut | Action |
+|---------|--------|
+| `Space Space` | Command palette |
+| `Space f f` | Quick open file |
+| `Space e` | Toggle sidebar |
+| `Space p` | List projects |
+| `Space f s` | Toggle fullscreen |
+| `Space h` | Previous editor |
+| `Space l` | Next editor |
+| `Space x` | Close editor |
+| `Space v` | Split vertical |
+| `Space s` | Split horizontal |
+| `Ctrl h/j/k/l` | Navigate panes |
+| `Ctrl Shift t` | Toggle terminal |
+| `Ctrl Shift m` | Focus terminal |
+| `Alt p` | Project Manager (global) |
+
+### Tmux
+
+| Shortcut | Action |
+|---------|--------|
+| `Ctrl a` | Prefix (leader) |
+| `Prefix _` | Split vertical |
+| `Prefix -` | Split horizontal |
+| `Prefix r` | Reload config |
+| `Prefix j/k/l/h` | Resize pane |
+| `Prefix v` | Begin selection (copy mode) |
+| `Prefix y` | Copy to clipboard |
+
+### GNOME
+
+| Shortcut | Action |
+|---------|--------|
+| `Super 1-6` | Switch workspace |
+| `Super h/l` | Workspace left/right |
+| `Super w` | Close window |
+| `Super Return` | New Alacritty |
+| `Super Space` | Ulauncher |
+| `Alt 1-9` | Pin app 1-9 |
