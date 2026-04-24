@@ -80,6 +80,22 @@ pre-commit install
 
 ## Keyboard Shortcuts
 
+### Neovim
+
+| Shortcut | Action |
+|----------|--------|
+| `Leader Space` | Leader key |
+| `jj` | Exit insert mode |
+| `Ctrl h/j/k/l` | Navigate windows |
+| `Esc` | Clear search highlight |
+| `Leader q` | Open quickfix list |
+| `Leader n` | Toggle Neotree |
+| `Leader ff` | Telescope find files |
+| `Leader fg` | Telescope live grep |
+| `Leader b` | Telescope buffers |
+| `Leader td` | Telescope todo comments |
+| `Leader /` | Comment toggle |
+
 ### VS Code (Neovim Mode)
 
 | Shortcut | Action |
