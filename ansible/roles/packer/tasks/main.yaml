@@ -1,0 +1,15 @@
+---
+- name: "Install Terraform"
+  ansible.builtin.include_role:
+    name: add_apt_repo
+  vars:
+    repo_name: packer
+    repo_key_file_name: hashicorp-archive-keyring.gpg
+    repo_gpg_key_url: https://apt.releases.hashicorp.com/gpg
+    repo_release_channel: main
+    repo_url: https://apt.releases.hashicorp.com
+    repo_type: "{{ansible_distribution_release}}"
+- name: "Install Packages"
+  ansible.builtin.apt:
+    name: "{{ packer_packages }}"
+    update_cache: true

@@ -1,0 +1,133 @@
+{
+    "window.menuBarVisibility": "compact",
+    "window.titleBarStyle": "custom",
+    // --- VSCodeVim Settings ---
+    "vim.easymotion": true,
+    "vim.incsearch": true,
+    "vim.useSystemClipboard": true, // Permet d'utiliser le presse-papiers système avec les commandes Vim (y, p)
+    "vim.hlsearch": true,
+    "vim.leader": "<space>", // Définit la touche espace comme "leader" (utile pour des mappings personnalisés)
+    "vim.handleKeys": {
+        "<C-d>": false, // Laisse VS Code gérer Ctrl+D (sélection multiple)
+        "<C-f>": false, // Laisse VS Code gérer Ctrl+F (recherche)
+        "<C-s>": false, // Laisse VS Code gérer Ctrl+S (sauvegarde)
+        "<C-a>": false, // Laisse VS Code gérer Ctrl+A (sélection tout)
+        "<C-z>": false, // Laisse VS Code gérer Ctrl+Z (annuler)
+        "<C-y>": false, // Laisse VS Code gérer Ctrl+Y (refaire)
+        "<C-c>": false, // Laisse VS Code gérer Ctrl+C (copier)
+        "<C-v>": true, // Laisse VS Code gérer Ctrl+V (coller)
+        "<C-x>": false, // Laisse VS Code gérer Ctrl+X (couper)
+        "<C-g>": false, // Laisse VS Code gérer Ctrl+G (goto line)
+        "<C-h>": false, // Pour éviter les conflits avec le panneau de recherche/remplacement de VS Code
+        "<C-k>": false, // Pour éviter les conflits
+        "<C-j>": false, // Pour éviter les conflits
+        "<C-l>": false, // Pour éviter les conflits
+    },
+    "vim.insertModeKeyBindings": [
+        {
+            "before": [
+                "j",
+                "j"
+            ],
+            "after": [
+                "<Esc>"
+            ]
+        }
+    ],
+    // --- General Editor Settings (mimicking Neovim look & feel) ---
+    "editor.fontFamily": "CaskaydiaMono Nerd Font",
+    "editor.fontSize": 12,
+    "editor.minimap.enabled": false, // Désactive la minimap pour un look plus "Neovim"
+    "editor.lineNumbers": "relative", // Numéros de ligne relatifs
+    "editor.cursorStyle": "block", // Curseur de type bloc
+    "editor.renderWhitespace": "all", // Afficher tous les espaces blancs
+    "editor.tabSize": 4, // Taille des tabulations
+    "editor.insertSpaces": true, // Utiliser des espaces au lieu des tabulations
+    "editor.wordWrap": "off", // Désactiver le retour à la ligne automatique
+    "editor.scrollBeyondLastLine": false, // Ne pas pouvoir défiler après la dernière ligne
+    "editor.suggest.showStatusBar": false, // Moins de distraction
+    "editor.overviewRulerBorder": true, // Enlève la bordure du "ruler" à droite
+    "editor.hideCursorInOverviewRuler": true, // Masque le curseur dans le "ruler"
+    "editor.mouseWheelScrollSensitivity": 0.5, // Ajuster la sensibilité de la molette
+    // --- Terminal Settings (pour se rapprocher de l'expérience shell intégré) ---
+    "terminal.integrated.cwd": "${workspaceFolder}", // Ouvrir le terminal dans le dossier du projet
+    "terminal.integrated.scrollback": 10000, // Augmenter le tampon de défilement
+    "terminal.integrated.fontSize": 14, // Taille de police du terminal
+    "terminal.integrated.fontWeight": "normal",
+    "terminal.integrated.cursorStyle": "block",
+    "terminal.integrated.cursorBlinking": true,
+    // --- Files and Folders Settings ---
+    "files.trimTrailingWhitespace": true, // Supprime les espaces en fin de ligne à la sauvegarde
+    "files.insertFinalNewline": true, // Assure une ligne vide à la fin du fichier
+    "files.autoSave": "off", // Désactiver l'auto-save si vous préférez la sauvegarde manuelle (comme Neovim)
+    // --- Workbench (UI) Settings ---
+    "workbench.statusBar.visible": true, // Garde la barre de statut visible
+    "workbench.editor.showTabs": "multiple", // Toujours afficher les onglets
+    "workbench.tree.indent": 12, // Indentation de l'explorateur de fichiers
+    // --- Icons & Theme ---
+    "workbench.colorTheme": "Tokyo Night",
+    // --- Language Configuration ----
+    "editor.formatOnSave": true, // Active le formatage à la sauvegarde pour tous les langages
+    "[python]": {
+        "editor.defaultFormatter": "ms-python.black-formatter",
+        "editor.lineHeight": 80
+    },
+    // --- Go Formatting (GoFmt) ---
+    "go.formatTool": "gofmt",
+    "go.lintOnSave": "package", // Active le linting Go à la sauvegarde
+    "go.useLanguageServer": true, // Recommandé pour de meilleures performances et fonctionnalités
+    "[go]": {
+        "editor.defaultFormatter": "golang.go"
+    },
+    // --- Ansible Linting ---
+    "ansible.validation.enabled": true,
+    "ansible.validation.lint.enabled": true, // Chemin vers votre interpréteur Python avec ansible-lint installé
+    // --- Helm Linting & Autocompletion ---
+    "helm-intellisense.lintFileOnSave": true,
+    "[helm]": {
+        "editor.defaultFormatter": "Tim-Koehler.helm-intellisense"
+    },
+    "yaml.schemas": {
+        "kubernetes": "kubernetes.yaml", // Pour le support Kubernetes dans les fichiers YAML
+        "ansible": "ansible", // Pour le support Ansible dans les fichiers YAML
+        "https://raw.githubusercontent.com/helm/helm-schemas/main/json-schema/values-v2.json": "values.yaml" // Schéma pour les fichiers values.yaml de Helm
+    },
+    "yaml.format.enable": true, // Active le formatage YAML
+    "yaml.validate": true, // Active la validation YAML
+    "yaml.customTags": [
+        "!And",
+        "!If",
+        "!Not",
+        "!Or",
+        "!Equals",
+        "!Join",
+        "!Sub",
+        "!Cidr",
+        "!Base64",
+        "!GetAtt",
+        "!GetAZs",
+        "!ImportValue",
+        "!Ref",
+        "!Select",
+        "!Split",
+        "!Transform",
+        "!FindInMap",
+        "!Condition"
+    ],
+    // --- Bash Formatting & Linting ---
+    "shellformat.path": "/usr/local/bin/shfmt", // Chemin vers l'exécutable shfmt, ajustez si nécessaire
+    "[shellscript]": {
+        "editor.defaultFormatter": "foxundermoon.shell-format"
+    },
+    "bashIde.shellcheckPath": "/usr/bin/shellcheck", // Chemin vers l'exécutable shellcheck, ajustez si nécessaire
+    "bashIde.enableSourceErrorDiagnostics": true,
+    // --- Terraform Language Support & Formatting ---
+    "terraform.languageServer.enable": true,
+    "[terraform]": {
+        "editor.defaultFormatter": "hashicorp.terraform"
+    },
+    "[terraform-vars]": { // Pour les fichiers *.tfvars
+        "editor.defaultFormatter": "hashicorp.terraform"
+    },
+    "redhat.telemetry.enabled": false,
+}

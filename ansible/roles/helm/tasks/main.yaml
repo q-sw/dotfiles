@@ -1,0 +1,15 @@
+---
+- name: "Install Tailscale"
+  ansible.builtin.include_role:
+    name: add_apt_repo
+  vars:
+    repo_name: helm
+    repo_key_file_name: helm.gpg
+    repo_gpg_key_url: https://baltocdn.com/helm/signing.asc
+    repo_release_channel: main
+    repo_url: https://baltocdn.com/helm/stable/debian/
+    repo_type: all
+- name: "Install Packages"
+  ansible.builtin.apt:
+    name: "{{ helm_packages }}"
+    update_cache: true

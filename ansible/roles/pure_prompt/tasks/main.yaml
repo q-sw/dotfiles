@@ -1,0 +1,11 @@
+---
+- name: "Create $HOME/.zsh"
+  ansible.builtin.file:
+    path: "{{ansible_user_dir}}/.zsh"
+    state: directory
+    mode: 0755
+
+- name: "Install pure prompt"
+  ansible.builtin.git:
+    repo: https://github.com/sindresorhus/pure.git
+    dest: "{{ansible_user_dir}}/.zsh/pure"

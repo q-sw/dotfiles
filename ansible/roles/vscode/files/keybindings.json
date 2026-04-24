@@ -1,0 +1,136 @@
+[
+    // Toggle explorer
+    {
+        "key": "space b",
+        "command": "workbench.view.explorer",
+        "when": "editorTextFocus && vim.active"
+    },
+    {
+        "key": "space b",
+        "command": "workbench.view.explorer"
+    },
+    {
+        "key": "space f",
+        "command": "find-it-faster.findFiles",
+        "when": "editorTextFocus && vim.active"
+    },
+    {
+        "key": "space f",
+        "command": "find-it-faster.findFiles"
+    },
+    // Toggle terminal
+    {
+        "key": "ctrl+t",
+        "command": "workbench.action.createTerminalEditorSide",
+        "when": "editorTextFocus && vim.active"
+    },
+    {
+        "key": "ctrl+t",
+        "command": "workbench.action.previousEditor",
+        "when": "terminalEditorFocus"
+    },
+    {
+        "key": "ctrl+shift+t",
+        "command": "workbench.action.terminal.killEditor",
+        "when": "terminalEditorFocus"
+    },
+    // Find text in files (like Grep)
+    {
+        "key": "space g",
+        "command": "workbench.action.findInFiles",
+        "when": "editorTextFocus && vim.active"
+    },
+    // Save file
+    {
+        "key": "space w",
+        "command": "workbench.action.files.save",
+        "when": "editorTextFocus && vim.active"
+    },
+    // Close current tab/window
+    {
+        "key": "space q",
+        "command": "workbench.action.closeActiveEditor",
+        "when": "editorTextFocus && vim.active"
+    },
+    // Split windows (horizontal/vertical)
+    {
+        "key": "space v", // Split vertical
+        "command": "workbench.action.splitEditor",
+        "when": "editorTextFocus && vim.active"
+    },
+    {
+        "key": "space h", // Split horizontal
+        "command": "workbench.action.splitEditorDown",
+        "when": "editorTextFocus && vim.active"
+    },
+    // Navigate between splits
+    {
+        "key": "ctrl+h",
+        "command": "workbench.action.focusLeftGroup",
+        "when": "editorTextFocus && vim.active"
+    },
+    {
+        "key": "ctrl+l",
+        "command": "workbench.action.focusRightGroup",
+        "when": "editorTextFocus && vim.active"
+    },
+    {
+        "key": "ctrl+k",
+        "command": "workbench.action.focusAboveGroup",
+        "when": "editorTextFocus && vim.active"
+    },
+    {
+        "key": "ctrl+j",
+        "command": "workbench.action.focusBelowGroup",
+        "when": "editorTextFocus && vim.active"
+    },
+    // Resize splits
+    {
+        "key": "ctrl+shift+h",
+        "command": "workbench.action.editor.resizeEditorGroupLeft",
+        "when": "editorTextFocus && vim.active"
+    },
+    {
+        "key": "ctrl+shift+l",
+        "command": "workbench.action.editor.resizeEditorGroupRight",
+        "when": "editorTextFocus && vim.active"
+    },
+    {
+        "key": "ctrl+shift+k",
+        "command": "workbench.action.editor.resizeEditorGroupUp",
+        "when": "editorTextFocus && vim.active"
+    },
+    {
+        "key": "ctrl+shift+j",
+        "command": "workbench.action.editor.resizeEditorGroupDown",
+        "when": "editorTextFocus && vim.active"
+    },
+    {
+        "key": "ctrl+shift+p",
+        "command": "projectManager.listProjects"
+    },
+    {
+        "before": [
+            "<space>"
+        ],
+        "after": [
+            "<space>"
+        ],
+        "command": "workbench.action.collapseAllFolders", // Une commande bidon qui ne sera pas exécutée
+        "when": "vim.active && vim.mode == 'Insert'",
+        "args": []
+    },
+    {
+        "key": "space",
+        "command": "-vim.remap", // Désactive le remappage de l'espace par Vim
+        "when": "editorTextFocus && vim.active && vim.mode == 'Insert'"
+    },
+    {
+        "key": "space",
+        "command": "type", // Permet à VS Code d'insérer un espace
+        "args": {
+            "text": " "
+        },
+        "when": "editorTextFocus && vim.active && vim.mode == 'Insert'"
+    }
+]

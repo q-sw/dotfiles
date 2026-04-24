@@ -6,6 +6,7 @@ export VISUAL=nvim
 export EDITOR=nvim
 export TERM="screen-256color"
 export BROWSER="google-chrome-stable"
+export GOOGLE_CLOUD_PROJECT_ID="sbx-qsw"
 
 HISTSIZE=1000
 HISTFILESIZE=2000

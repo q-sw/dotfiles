@@ -1,0 +1,10 @@
+---
+- name: "Download minikube"
+  ansible.builtin.get_url:
+    url: https://storage.googleapis.com/minikube/releases/latest/minikube-linux-amd64
+    dest: /tmp/
+
+- name: "Install minikube"
+  ansible.builtin.command:
+    cmd: install minikube-linux-amd64 /usr/local/bin/minikube
+    chdir: /tmp

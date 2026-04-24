@@ -1,0 +1,23 @@
+---
+- name: "Install Docker"
+  ansible.builtin.include_role:
+    name: add_apt_repo
+  vars:
+    repo_name: docker
+    repo_key_file_name: docker.gpg
+    repo_gpg_key_url: "https://download.docker.com/linux/ubuntu/gpg"
+    repo_url: https://download.docker.com/linux/ubuntu
+    repo_type: "{{ ansible_distribution_release }}"
+    repo_release_channel: stable
+
+- name: "Install Packages"
+  ansible.builtin.apt:
+    name: "{{ docker_packages }}"
+    update_cache: true
+
+- name: "Add user in docker group"
+  ansible.builtin.user:
+    name: "{{ item }}"
+    groups: docker
+    append: true
+  loop: "{{ docker_users }}"

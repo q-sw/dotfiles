@@ -1,0 +1,6 @@
+tmux_system_packages:
+  - unzip
+  - curl
+  - git
+  - tmux
+

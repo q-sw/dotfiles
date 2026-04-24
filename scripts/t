@@ -10,7 +10,7 @@ fi
 if ! tmux has-session -t=main 2>/dev/null; then
     tmux new-session -ds main -c "${HOME}"
     tmux rename-window -t main:1 shell
-    tmux new-window -t main -n dotfile -c ~/dev/dotfiles
+    tmux new-window -t main -n dotfile -c ~/dev/github/dotfiles
 fi
 
 tmux attach -t main:1

@@ -1,0 +1,5 @@
+---
+- name: "Install apt common package"
+  ansible.builtin.package:
+    name: "{{ python_system_packages }}"
+    state: present

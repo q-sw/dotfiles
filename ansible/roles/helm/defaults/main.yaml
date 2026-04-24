@@ -1,0 +1,9 @@
+---
+helm_packages:
+  - helm
+repo_name: helm
+repo_key_file_name: helm.gpg
+repo_gpg_key_url: https://baltocdn.com/helm/signing.asc
+repo_release_channel: main
+repo_url: https://baltocdn.com/helm/stable/debian/
+repo_type: all

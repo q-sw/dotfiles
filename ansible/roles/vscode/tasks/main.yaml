@@ -1,0 +1,43 @@
+---
+- name: "Install vscode"
+  ansible.builtin.include_role:
+    name: add_apt_repo
+  vars:
+    repo_name: microsoft
+    repo_key_file_name: packages.microsoft.gpg
+    repo_gpg_key_url: https://packages.microsoft.com/keys/microsoft.asc
+    repo_url: https://packages.microsoft.com/repos/code
+    repo_type: stable
+    repo_release_channel: main
+
+- name: "Install Packages"
+  ansible.builtin.apt:
+    name: "{{ vscode_packages }}"
+    update_cache: true
+
+- name: "Install extension"
+  become: false
+  ansible.builtin.command:
+    cmd: "code --install-extension {{ ext }}"
+  loop: "{{ vscode_extensions }}"
+  loop_control:
+    loop_var: ext
+
+- name: "Create code tree"
+  become: false
+  ansible.builtin.file:
+    path: "/home/quentin/.config/Code/User"
+    state: directory
+    recurse: true
+
+- name: "Push configuration"
+  ansible.builtin.copy:
+    src: settings.json
+    dest: "/home/quentin/.config/Code/User/settings.json"
+    mode: "0644"
+
+- name: "Push keybindings"
+  ansible.builtin.copy:
+    src: keybindings.json
+    dest: "/home/quentin/.config/Code/User/keybindings.json"
+    mode: "0644"

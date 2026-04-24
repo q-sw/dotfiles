@@ -1,0 +1,11 @@
+---
+- name: "Install apt common package"
+  ansible.builtin.package:
+    name: "{{ tmux_system_packages }}"
+    state: present
+
+- name: "Tmux plugin manager"
+  ansible.builtin.git:
+    repo: https://github.com/tmux-plugins/tpm
+    dest: "{{ansible_user_dir}}/.tmux/plugins/tpm"
+

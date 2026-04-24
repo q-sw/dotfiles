@@ -1,0 +1,67 @@
+---
+- name: "Configure Laptop"
+  hosts: localhost
+  become: true
+  tasks:
+    - name: "Install general package"
+      ansible.builtin.package:
+        package: "{{ default_packages }}"
+        state: present
+      tags:
+        - general
+
+    - name: "Install Browser"
+      ansible.builtin.include_role:
+        name: "{{ item.name }}"
+      when: item.install
+      loop: "{{ browser }}"
+      tags:
+        - browser
+
+    - name: "Install Tools"
+      ansible.builtin.include_role:
+        name: "{{ item.name }}"
+      when: item.install
+      loop: "{{ tools }}"
+      tags:
+        - tools
+
+    - name: "Install Programming language"
+      ansible.builtin.include_role:
+        name: "{{ item.name }}"
+      when: item.install
+      loop: "{{ programming }}"
+      tags:
+        - programming
+
+    - name: "Install Cloud"
+      ansible.builtin.include_role:
+        name: "{{ item.name }}"
+      when: item.install
+      loop: "{{ cloud }}"
+      tags:
+        - cloud
+
+    - name: "Install Container"
+      ansible.builtin.include_role:
+        name: "{{ item.name }}"
+      when: item.install
+      loop: "{{ container }}"
+      tags:
+        - container
+
+    - name: "Install terminal"
+      ansible.builtin.include_role:
+        name: "{{ item.name }}"
+      when: item.install
+      loop: "{{ terminal }}"
+      tags:
+        - terminal
+
+    - name: "Install font"
+      ansible.builtin.include_role:
+        name: "{{ item.name }}"
+      when: item.install
+      loop: "{{ font }}"
+      tags:
+        - font

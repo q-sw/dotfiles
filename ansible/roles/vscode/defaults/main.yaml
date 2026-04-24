@@ -1,0 +1,24 @@
+vscode_packages:
+  - code
+
+vscode_extensions:
+  - alefragnani.project-manager
+  - enkia.tokyo-night
+  - foxundermoon.shell-format
+  - golang.go
+  - hashicorp.terraform
+  - mads-hartmann.bash-ide-vscode
+  - ms-azuretools.vscode-containers
+  - ms-azuretools.vscode-docker
+  - ms-kubernetes-tools.vscode-kubernetes-tools
+  - ms-python.black-formatter
+  - ms-python.debugpy
+  - ms-python.python
+  - ms-python.vscode-pylance
+  - redhat.ansible
+  - redhat.vscode-yaml
+  - sirmspencer.vscode-autohide
+  - tim-koehler.helm-intellisense
+  - vscodevim.vim
+  - google.geminicodeassist
+  - github.github-vscode-theme
