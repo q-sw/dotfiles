@@ -10,7 +10,7 @@
   block:
     - name: "Download key for {{ repo_name }}"
       ansible.builtin.shell:
-        cmd: "curl {{repo_gpg_key_url}} | gpg --dearmor -o /etc/apt/trusted.gpg.d/{{repo_key_file_name}}"
+        cmd: "curl {{ repo_gpg_key_url }} | gpg --dearmor -o /etc/apt/trusted.gpg.d/{{ repo_key_file_name }}"
 
     - name: "Add repository for {{ repo_name }}"
       ansible.builtin.apt_repository:

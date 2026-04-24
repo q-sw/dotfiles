@@ -1,6 +1,6 @@
 {config, pkgs, ...}:
 {
-    programs.neovim = 
+    programs.neovim =
         let
             toLuaFile = file: "lua << EOF\n${builtins.readFile file}\nEOF\n";
             unstable = import <nixpkgs-unstable> { config = config.nixpkgs.config; };

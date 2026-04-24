@@ -5,6 +5,7 @@ Unified repository for all my personal configurations.
 ## Structure
 
 ```
+bash
 dotfiles/
 ├── bash/        # Bash configuration (.bashrc, prompt)
 ├── zsh/        # Zsh configuration (.zshrc)
@@ -63,7 +64,7 @@ See [vscode/README.md](./vscode/README.md) for multi-profile setup.
 ## Scripts
 
 | Script | Description |
-|--------|------------|
+| ------ | ------------ |
 | `scripts/t` | Attach to tmux session |
 | `scripts/gnome_config.sh` | Setup GNOME extensions |
 | `scripts/gnome_shortcut_config.sh` | Configure GNOME shortcuts |
@@ -83,7 +84,7 @@ pre-commit install
 ### Neovim
 
 | Shortcut | Action |
-|----------|--------|
+| ------- | -------- |
 | `Leader Space` | Leader key |
 | `jj` | Exit insert mode |
 | `Ctrl h/j/k/l` | Navigate windows |
@@ -99,7 +100,7 @@ pre-commit install
 ### VS Code (Neovim Mode)
 
 | Shortcut | Action |
-|---------|--------|
+| -------- | -------- |
 | `Space Space` | Command palette |
 | `Space f f` | Quick open file |
 | `Space e` | Toggle sidebar |
@@ -118,7 +119,7 @@ pre-commit install
 ### Tmux
 
 | Shortcut | Action |
-|---------|--------|
+| -------- | -------- |
 | `Ctrl a` | Prefix (leader) |
 | `Prefix _` | Split vertical |
 | `Prefix -` | Split horizontal |
@@ -130,7 +131,7 @@ pre-commit install
 ### GNOME
 
 | Shortcut | Action |
-|---------|--------|
+| -------- | -------- |
 | `Super 1-6` | Switch workspace |
 | `Super h/l` | Workspace left/right |
 | `Super w` | Close window |

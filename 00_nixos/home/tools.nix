@@ -1,6 +1,6 @@
 {pkgs, ...}:
 let
-    clean = pkgs.writeScriptBin "clean-gen" 
+    clean = pkgs.writeScriptBin "clean-gen"
     ''
       #!/usr/bin/env bash
 

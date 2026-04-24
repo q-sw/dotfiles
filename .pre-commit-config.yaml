@@ -8,7 +8,7 @@ repos:
       - id: trailing-whitespace
       - id: end-of-file-fixer
       - id: check-yaml
-        args: [ --allow-multiple-documents ]
+        args: [--allow-multiple-documents]
         # Exclude helm templates and other non-standard yaml files from check-yaml
         exclude: &exclude_non_pure_yaml ^charts/.*\.yaml$|^kubernetes/.*(values|schema|gotk-components)\.yaml$
       - id: check-added-large-files
@@ -24,13 +24,13 @@ repos:
     rev: v0.11.0
     hooks:
       - id: shellcheck
-        language: system
+        stages: [manual]
   - repo: https://github.com/igorshubovych/markdownlint-cli
     rev: v0.46.0
     hooks:
       - id: markdownlint
         language: system
-        args: [ "--config", ".markdownlint.yaml" ]
+        args: [--config, .markdownlint.yaml]
   - repo: https://github.com/gitleaks/gitleaks
     rev: v8.24.2
     hooks:

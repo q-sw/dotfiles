@@ -6,6 +6,9 @@ rules:
     max: 120
     level: warning
 
-  # Required for Flux Kustomizations which often don't have a document start
+  # Flux Kustomizations often don't have a document start
   document-start:
-    present: true
+    present: false
+
+  comments:
+    min-spaces-from-content: 1

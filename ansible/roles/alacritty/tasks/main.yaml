@@ -36,4 +36,3 @@
       update-desktop-database
     chdir: /opt/alacritty
   when: alacritty_changed.changed
-

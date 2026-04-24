@@ -1,37 +1,33 @@
-Role Name
-=========
+# add_apt_repo
 
 Role to add APT repository with GPG key.
 
-Requirements
-------------
+## Requirements
 
 - Root permissions
 
-Role Variables
---------------
-|Variable name|Description|
-|-------------|-----------|
-|repo_name            | The repositoriy name |
-|repo_key_file_name   | The key name as you want to see it in your system| 
-|repo_gpg_key_url     | The download gpg key URL|
-|repo_url        | The repositoriy URL|
-|repo_type       | The repositoriy distrubution or type|
-|repo_release_channel | The release channel to use|
+## Role Variables
 
-Dependencies
-------------
+| Variable name | Description |
+| ----------- | ----------- |
+| repo_name | The repository name |
+| repo_key_file_name | The key name as you want to see it in your system |
+| repo_gpg_key_url | The download gpg key URL |
+| repo_url | The repository URL |
+| repo_type | The repository distribution or type |
+| repo_release_channel | The release channel to use |
 
-N/A
+## Dependencies
 
-Example Playbook
-----------------
+None
+
+## Example Playbook
 
 ```yaml
 ---
 - hosts: localhost
   tasks:
-    - name: "Add  Repo"
+    - name: "Add Repo"
       ansible.builtin.include_role:
         name: add_apt_repo
       vars:
@@ -43,8 +39,6 @@ Example Playbook
         repo_name: ""
 ```
 
-License
--------
+## License
 
 BSD
-

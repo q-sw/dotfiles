@@ -60,7 +60,7 @@
     services.printing.enable = true;
 
 
-    # Enable sound 
+    # Enable sound
     hardware.pulseaudio.enable = true;
     hardware.pulseaudio.support32Bit = true;
     hardware.pulseaudio.extraConfig = "load-module module-combine-sink";
@@ -94,7 +94,7 @@
     programs.firefox.enable = true;
     programs.zsh.enable = true;
     environment.systemPackages = with pkgs;[
-        vim 
+        vim
         wget
         home-manager
         pulseaudioFull

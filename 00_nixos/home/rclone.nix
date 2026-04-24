@@ -25,8 +25,7 @@
             ExecStop = "/run/current-system/sw/bin/fusermount -u ${gdriveDir}";
             Restart = "on-failure";
             RestartSec = "10s";
-            Environment = [ "PATH=/run/wrappers/bin/:$PATH" ]; 
+            Environment = [ "PATH=/run/wrappers/bin/:$PATH" ];
         };
     };
 }
-

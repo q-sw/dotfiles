@@ -1,6 +1,6 @@
 {pkgs, ...}:
 let
-    t = pkgs.writeScriptBin "t" 
+    t = pkgs.writeScriptBin "t"
     ''
         #!/usr/bin/env bash
         tmux_running=$(pgrep tmux)
@@ -44,7 +44,7 @@ let
         tmux switch-client -t ''${selected_name}
     '';
 
-in 
+in
 {
     home.packages = [ t tcs ];
     programs.tmux = {

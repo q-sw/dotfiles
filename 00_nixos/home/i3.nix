@@ -1,5 +1,5 @@
 {pkgs, config, lib, ...}:
-let 
+let
   mod = "Mod4";
   background = "/home/quentin/Pictures/lock_screen.png";
 in
@@ -130,13 +130,13 @@ in
     modules = {
       "tztime local" = {
         position = 5;
-        settings = { 
+        settings = {
           format = "%Y-%m-%d %H:%M:%S";
         };
       };
       "battery all" = {
         position = 4;
-        settings = { 
+        settings = {
           format = "%status %percentage %remaining";
           format_down = "No battery";
           status_chr = "⚡ CHR";
@@ -149,13 +149,13 @@ in
       };
       "load" = {
         position = 3;
-        settings = { 
+        settings = {
           format = "%1min";
         };
       };
       "memory" =  {
         position = 2;
-        settings = { 
+        settings = {
           format = "%used | %available";
           threshold_degraded = "1G";
           format_degraded = "MEMORY < %available";
