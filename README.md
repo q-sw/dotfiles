@@ -22,7 +22,9 @@ dotfiles/
 - **Bash**: Shell with custom aliases, functions, and completion caching
 - **Zsh**: Zsh with Oh-My-Zsh and Powerlevel10k
 - **Tmux**: Terminal multiplexer with vim navigation
-- **Neovim**: Text editor (via NixOS home-manager)
+- **Neovim**: Text editor (source: `00_nixos/home/nvim/`)
+- **Alacritty**: Terminal emulator
+- **Ghostty**: Terminal emulator
 - **VS Code**: Multi-profile VS Code management
 - **NixOS**: Declarative system configurations
 - **Ansible**: Ubuntu automation roles
@@ -65,6 +67,7 @@ See [vscode/README.md](./vscode/README.md) for multi-profile setup.
 | `scripts/t` | Attach to tmux session |
 | `scripts/gnome_config.sh` | Setup GNOME extensions |
 | `scripts/gnome_shortcut_config.sh` | Configure GNOME shortcuts |
+| `scripts/install-neovim.sh` | Install Neovim config to non-NixOS |
 
 ## Linting
 
