@@ -1,0 +1,25 @@
+font-size = 12
+theme = dark:GitHub-Dark-Dimmed,light:GitHub-Light-Default
+shell-integration-features=no-cursor
+cursor-style = block
+window-padding-x = 0
+window-padding-y = 0
+window-padding-balance=true
+window-padding-color=extend
+window-decoration = none
+window-save-state = always
+window-new-tab-position = end
+
+working-directory = home
+window-inherit-working-directory = false
+
+keybind = ctrl+n=new_window
+
+keybind = ctrl+b>r=reload_config
+keybind = ctrl+b>t=new_tab
+keybind = ctrl+b>l=next_tab
+keybind = ctrl+b>h=previous_tab
+keybind = ctrl+b>x=close_tab
+
+keybind = ctrl+b>-=new_split:down
+keybind = ctrl+b>\=new_split:right
