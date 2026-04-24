@@ -1,81 +1,76 @@
 # My Dotfiles
 
-This repository contains my personal configurations for various tools.
+Unified repository for all my personal configurations.
 
-## Configured Tools
+## Structure
 
-- **Alacritty**: A fast, cross-platform terminal emulator.
-- **Bash**: The default Unix shell, with custom aliases and functions.
-- **Ghostty**: Another terminal emulator.
-- **Neovim**: A powerful and extensible text editor based on Vim.
-- **Tmux**: A terminal multiplexer.
-
-## Installation with GNU Stow
-
-This repository uses [GNU Stow](https://www.gnu.org/software/stow/) to manage dotfiles symbolically.
-This allows keeping configuration files organized within this repository
-while linking them to the appropriate locations on your system.
-
-### Prerequisites
-
-Make sure you have GNU Stow installed on your system.
-
-```bash
-# On Debian/Ubuntu
-sudo apt install stow
-
-# On Fedora
-sudo dnf install stow
-
-# On macOS with Homebrew
-brew install stow
+```
+dotfiles/
+├── bash/        # Bash configuration (.bashrc, prompt)
+├── zsh/        # Zsh configuration (.zshrc)
+├── tmux/       # Tmux configuration
+├── nixos/      # NixOS configurations
+├── ansible/    # Ansible roles for Ubuntu
+├── macos/      # macOS bundle and install script
+├── vscode/     # VS Code configurations
+├── scripts/    # Utility scripts
+└── gnome/     # GNOME setup scripts
 ```
 
-### How to Use
+## Tools Configured
 
-1. **Clone this repository** into your home directory (or any other location you prefer,
-    but the home directory is recommended for simplicity of relative paths)
+- **Bash**: Shell with custom aliases, functions, and completion caching
+- **Zsh**: Zsh with Oh-My-Zsh and Powerlevel10k
+- **Tmux**: Terminal multiplexer with vim navigation
+- **Neovim**: Text editor (via NixOS home-manager)
+- **VS Code**: Multi-profile VS Code management
+- **NixOS**: Declarative system configurations
+- **Ansible**: Ubuntu automation roles
 
-    ```bash
-    cd ~
-    git clone https://github.com/your_username/dotfiles.git
-    ```
+## Installation
 
-2. **Navigate to the `dotfiles` directory**
-
-    ```bash
-    cd dotfiles
-    ```
-
-3. **Use `stow` to link the configurations**:
-
-    To link configurations for all tools:
-
-    ```bash
-    stow alacratty bash ghostty neovim tmux
-    ```
-
-    If you want to link the configuration for a single tool (e.g., Neovim):
-
-    ```bash
-    stow neovim
-    ```
-
-    `stow` will create symbolic links from the configuration files in this repository to the
-
-    appropriate locations in your home directory (e.g., `~/.config/nvim` will point to
-    `~/dotfiles/neovim/.config/nvim`).
-
-### Uninstallation
-
-To unlink the configurations for a tool:
+### Unix (GNU Stow)
 
 ```bash
-stow -D tool_name
+# Clone
+git clone https://github.com/q-sw/dotfiles.git ~/dotfiles
+cd ~/dotfiles
+
+# Link configurations
+stow bash zsh tmux scripts gnome
 ```
 
-For example:
+### NixOS
 
 ```bash
-stow -D neovim
+# Import in configuration.nix
+imports = [ ~/dotfiles/nixos/system/configuration.nix ]
+```
+
+### Ansible (Ubuntu)
+
+```bash
+cd ansible
+ansible-playbook -i inventory main.yaml
+```
+
+## VS Code
+
+See [vscode/README.md](./vscode/README.md) for multi-profile setup.
+
+## Scripts
+
+| Script | Description |
+|--------|------------|
+| `scripts/t` | Attach to tmux session |
+| `scripts/gnome_config.sh` | Setup GNOME extensions |
+| `scripts/gnome_shortcut_config.sh` | Configure GNOME shortcuts |
+
+## Linting
+
+This repo uses pre-commit hooks:
+
+```bash
+pip install pre-commit
+pre-commit install
 ```
