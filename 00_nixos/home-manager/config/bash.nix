@@ -50,7 +50,7 @@
       dev = "cd ~/dev";
       doc = "cd ~/Documents";
       dl = "cd ~/Downloads";
-      home-manager = "cd ~/home-manager";
+      home-manager = "cd ~/dotfiles/00_nixos/home-manager/";
       c = "clear";
       e = "exit";
       v = "nvim";

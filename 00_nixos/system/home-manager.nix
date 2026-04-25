@@ -9,8 +9,8 @@ in
       (import "${home-manager}/nixos")
     ];
 
-    home-manager.useGlobalPkgs = true;
-    home-manager.useUserPackages = true;
-    home-manager.users.qsw = import "/home/qsw/home-manager";
+  home-manager.useGlobalPkgs = true;
+  home-manager.useUserPackages = true;
+  home-manager.users.qsw = import "/home/qsw/dotfiles/00_nixos/home-manager";
 
 }
