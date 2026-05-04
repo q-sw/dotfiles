@@ -6,16 +6,24 @@
       # Include the results of the hardware scan.
       /etc/nixos/hardware-configuration.nix
       ./home-manager.nix
-      ./fprintd.nix
+      #./fprintd.nix
     ];
 
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
+  boot.kernelPackages = pkgs.linuxPackages_latest;
+  boot.kernelParams = [ "amdgpu.sg_display=0" ];
+  hardware.enableRedistributableFirmware = true;
+
 
   networking.hostName = "nixos"; # Define your hostname.
   # Enable networking
   networking.networkmanager.enable = true;
+  networking.extraHosts = ''
+    172.18.100.3 gitea.homelab.local
+
+  '';
 
   # Set your time zone.
   time.timeZone = "Europe/Paris";
@@ -38,9 +46,15 @@
   # Enable the X11 windowing system.
   services.xserver.enable = true;
 
+
   # Enable the GNOME Desktop Environment.
   services.displayManager.gdm.enable = true;
   services.desktopManager.gnome.enable = true;
+  services.displayManager.gdm.wayland = true;
+
+  services.gnome.core-apps.enable = true;
+  services.gnome.core-developer-tools.enable = false;
+  services.gnome.games.enable = false;
 
   # Configure keymap in X11
   services.xserver.xkb = {
@@ -62,6 +76,7 @@
   };
 
   virtualisation.libvirtd.enable = true;
+  virtualisation.docker.enable = true;
 
   virtualisation.spiceUSBRedirection.enable = true;
 
@@ -69,7 +84,7 @@
   users.users.qsw = {
     isNormalUser = true;
     description = "qsw";
-    extraGroups = [ "networkmanager" "wheel" "libvirtd" ];
+    extraGroups = [ "networkmanager" "wheel" "libvirtd" "docker" ];
   };
 
   # Allow unfree packages
@@ -85,6 +100,8 @@
     spice-gtk
     spice-protocol
   ];
+
+  services.fwupd.enable = true;
 
   # programs.gnupg.agent = {
   #   enable = true;
