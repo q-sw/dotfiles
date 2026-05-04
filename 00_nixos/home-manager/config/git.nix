@@ -49,7 +49,7 @@
         autoSetupRemote = true; # easier to push new branches
         default = "current"; # push only current branch by default
         followTags = true; # push also tags
-        gpgSign = false; # my remotes doesn't support sign pushes
+        # gpgSign = false; # my remotes doesn't support sign pushes
       };
       pull = {
         rebase = true;
