@@ -119,6 +119,15 @@
                     url = "https://nixos.org/learn.html";
                     keyword = "nix-docs";
                   }
+                  {
+                    name = "Nix Lib";
+                    url = "https://nixos.org/manual/nixpkgs/stable/";
+                    keyword = "nix-lib";
+                  }
+                  {
+                    name = "Kubernetes dev";
+                    url = "https://www.kubernetes.dev/docs/onboarding/";
+                  }
                 ];
               }
             ];
