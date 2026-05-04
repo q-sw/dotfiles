@@ -3,16 +3,16 @@
 let
   gemini-cli-custom = pkgs.buildNpmPackage rec {
     pname = "gemini-cli";
-    version = "v0.38.1"; # Ou un tag spécifique comme "1.1.0"
+    version = "v0.40.0"; # Ou un tag spécifique comme "1.1.0"
 
     src = pkgs.fetchFromGitHub {
       owner = "google-gemini";
       repo = "gemini-cli";
       rev = version;
-      hash = "sha256-Iq/KxQ8rbLtXDbGzcZxspfFwar189H3mBWwOD4hO7HU=";
+      hash = "sha256-d9CtwQQmblQs9BqdWPY9z9Q1fC41830Xqa1L2SFgEpI=";
     };
 
-    npmDepsHash = "sha256-T3fxNFvkLR7f49GQjzzTnl3VM+VUUgJfFF5d2GGe7L4=";
+    npmDepsHash = "sha256-mLldQUB8mFoeyXF90y1pPzM87LETCmJAAP/JlnTzgFc=";
     makeCacheWritable = true;
     nativeBuildInputs = [ pkgs.pkg-config ];
     buildInputs = [ pkgs.libsecret ];
@@ -65,8 +65,10 @@ in
     gemini-cli-custom
   ];
 
-  # Déploiement des extensions dans le répertoire attendu par Gemini CLI (~/.gemini/extensions)
-  home.file = pkgs.lib.mapAttrs'
+  # Déploiement des extensions et du fichier GEMINI.md global
+  home.file = {
+    ".gemini/GEMINI.md".source = ./gemini/GEMINI.md;
+  } // pkgs.lib.mapAttrs'
     (name: src: {
       name = ".gemini/extensions/${name}";
       value = {
