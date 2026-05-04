@@ -17,7 +17,7 @@
       '';
       kubernetes = {
         disabled = false;
-        format = "on [󱄄 $context($namespace)]($style) ";
+        format = "on [󱄄 $context>($namespace)]($style) ";
         style = "cyan bold";
       };
 
@@ -62,6 +62,7 @@
       gs = "git status";
       gc = "git commit -m";
       lg = "lazygit";
+      k = "kubectl";
       kc = "kubectx";
       kn = "kubens";
       tfi = "terraform init";
