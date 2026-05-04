@@ -4,6 +4,7 @@
     settings = {
       "org/gnome/mutter" = {
         dynamic-workspaces = false;
+        workspaces-only-on-primary = true;
       };
 
       "org/gnome/desktop/wm/preferences" = {
